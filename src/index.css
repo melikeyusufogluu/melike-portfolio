@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-win-desktop text-black font-sans antialiased select-none;
+  font-size: 13px;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  @apply bg-win-navy text-white;
+}
+
+/* classic beveled "raised" border, like buttons / windows */
+.bevel-out {
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #000000;
+  border-bottom-color: #000000;
+  box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #808080;
+}
+
+/* pressed / inset border, like text fields or a pressed button */
+.bevel-in {
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+  box-shadow: inset 1px 1px 0 #000000;
+}
+
+.title-bar-gradient {
+  background: linear-gradient(90deg, #000080 0%, #1084d0 100%);
+}
+
+.title-bar-gradient-inactive {
+  background: linear-gradient(90deg, #808080 0%, #b5b5b5 100%);
+}
+
+.scrollbar-win::-webkit-scrollbar {
+  width: 16px;
+}
+.scrollbar-win::-webkit-scrollbar-track {
+  background: #dfdfdf;
+}
+.scrollbar-win::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #000000;
+  border-bottom-color: #000000;
+}
