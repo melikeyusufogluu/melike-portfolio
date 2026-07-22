@@ -1,5 +1,7 @@
 # Melike Yusufoglu — Portfolio
 
+**Live site:** [melike-portfolio-omega.vercel.app](https://melike-portfolio-omega.vercel.app)
+
 A dark-themed developer portfolio built with **React + TypeScript + Tailwind CSS** (Vite), inspired by the layout style of brian-holt-portfolio.replit.app: hero intro, about, work experience timeline, skills grid, and contact section.
 
 ## Getting started
