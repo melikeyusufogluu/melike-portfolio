@@ -21,11 +21,15 @@ export default function AboutWindow() {
   return (
     <div className="flex flex-col gap-3">
       <div className="flex gap-3 items-start">
-        <img
-          src="/avatar.png"
-          alt={profile.name}
-          className="w-20 h-24 bevel-in object-cover object-top shrink-0"
-        />
+        <div className="avatar-blink w-20 h-24 bevel-in shrink-0">
+          <img
+            src="/avatar.png"
+            alt={profile.name}
+            className="w-full h-full object-cover object-top"
+          />
+          <span className="eyelid eyelid--left" />
+          <span className="eyelid eyelid--right" />
+        </div>
         <div>
           <p className="font-bold text-[15px]">{profile.name}</p>
           <p>

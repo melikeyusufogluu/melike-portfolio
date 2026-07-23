@@ -65,3 +65,52 @@ body {
   border-right-color: #000000;
   border-bottom-color: #000000;
 }
+
+/* blinking eyes overlay for the avatar, positioned over the photo's actual eyes */
+.avatar-blink {
+  position: relative;
+  overflow: hidden;
+}
+
+.avatar-blink .eyelid {
+  position: absolute;
+  background: #b8763a;
+  border-radius: 50%;
+  transform: scaleY(0);
+  animation: eye-blink 4.6s infinite;
+}
+
+.avatar-blink .eyelid--left {
+  left: 37.3%;
+  width: 6.2%;
+  top: 22.6%;
+  height: 3.6%;
+  transform-origin: center bottom;
+}
+
+.avatar-blink .eyelid--right {
+  left: 46.9%;
+  width: 6.4%;
+  top: 19.3%;
+  height: 4.1%;
+  transform-origin: center bottom;
+  animation-delay: 0.02s;
+}
+
+@keyframes eye-blink {
+  0%,
+  95%,
+  100% {
+    transform: scaleY(0);
+  }
+  96.5%,
+  98.5% {
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avatar-blink .eyelid {
+    animation: none;
+  }
+}
