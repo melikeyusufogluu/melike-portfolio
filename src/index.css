@@ -2,115 +2,94 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body,
-#root {
-  height: 100%;
+/*
+  Soft palette: baby-pink bands, cocoa-brown text, a dusty-rose accent (berry)
+  and a caramel brown (latte) as the second color.
+  Light only: the site keeps this look even when the visitor's device is in dark mode.
+*/
+:root {
+  --bg: 253 249 246;
+  --card: 255 255 255;
+  --fg: 66 46 38;
+  --muted: 130 110 100;
+  --line: 240 226 219;
+  --berry: 178 88 80;
+  --band: 248 225 220;
+  --band-fg: 66 46 38;
+  --latte: 145 105 76;
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-win-desktop text-black font-sans antialiased select-none;
-  font-size: 13px;
+  @apply bg-bg text-fg font-sans antialiased;
+  font-size: 16px;
+  line-height: 1.65;
 }
 
-* {
-  -webkit-tap-highlight-color: transparent;
+h1,
+h2,
+h3 {
+  @apply font-display;
+  text-wrap: balance;
 }
 
 ::selection {
-  @apply bg-win-navy text-white;
+  @apply bg-berry text-white;
 }
 
-/* classic beveled "raised" border, like buttons / windows */
-.bevel-out {
-  border-style: solid;
-  border-width: 2px;
-  border-top-color: #ffffff;
-  border-left-color: #ffffff;
-  border-right-color: #000000;
-  border-bottom-color: #000000;
-  box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #808080;
+:focus-visible {
+  @apply outline outline-2 outline-offset-2 outline-berry;
 }
 
-/* pressed / inset border, like text fields or a pressed button */
-.bevel-in {
-  border-style: solid;
-  border-width: 2px;
-  border-top-color: #808080;
-  border-left-color: #808080;
-  border-right-color: #ffffff;
-  border-bottom-color: #ffffff;
-  box-shadow: inset 1px 1px 0 #000000;
+/* thin pinstripes, a nod to the striped shirt in the photo */
+.pinstripe {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgb(var(--band-fg) / 0.045) 0 1px,
+    transparent 1px 14px
+  );
 }
 
-.title-bar-gradient {
-  background: linear-gradient(90deg, #000080 0%, #1084d0 100%);
+/* section kicker: small berry text with a short wavy underline */
+.kicker {
+  @apply inline-flex items-center gap-2 text-sm font-semibold text-berry;
+}
+.kicker::before {
+  content: '';
+  width: 22px;
+  height: 8px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 8'%3E%3Cpath d='M1 4c2.5-3 5-3 7 0s4.5 3 7 0 4.5-3 6 0' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 8'%3E%3Cpath d='M1 4c2.5-3 5-3 7 0s4.5 3 7 0 4.5-3 6 0' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E")
+    center / contain no-repeat;
 }
 
-.title-bar-gradient-inactive {
-  background: linear-gradient(90deg, #808080 0%, #b5b5b5 100%);
-}
-
-.scrollbar-win::-webkit-scrollbar {
-  width: 16px;
-}
-.scrollbar-win::-webkit-scrollbar-track {
-  background: #dfdfdf;
-}
-.scrollbar-win::-webkit-scrollbar-thumb {
-  background: #c0c0c0;
-  border: 2px solid;
-  border-top-color: #ffffff;
-  border-left-color: #ffffff;
-  border-right-color: #000000;
-  border-bottom-color: #000000;
-}
-
-/* blinking eyes overlay for the avatar, positioned over the photo's actual eyes */
-.avatar-blink {
-  position: relative;
-  overflow: hidden;
-}
-
-.avatar-blink .eyelid {
-  position: absolute;
-  background: #b8763a;
-  border-radius: 50%;
-  transform: scaleY(0);
-  animation: eye-blink 4.6s infinite;
-}
-
-.avatar-blink .eyelid--left {
-  left: 37.3%;
-  width: 6.2%;
-  top: 22.6%;
-  height: 3.6%;
-  transform-origin: center bottom;
-}
-
-.avatar-blink .eyelid--right {
-  left: 46.9%;
-  width: 6.4%;
-  top: 19.3%;
-  height: 4.1%;
-  transform-origin: center bottom;
-  animation-delay: 0.02s;
-}
-
-@keyframes eye-blink {
-  0%,
-  95%,
-  100% {
-    transform: scaleY(0);
+@keyframes float-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
   }
-  96.5%,
-  98.5% {
-    transform: scaleY(1);
+  to {
+    opacity: 1;
+    transform: none;
   }
+}
+
+.float-in {
+  animation: float-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .avatar-blink .eyelid {
+  html {
+    scroll-behavior: auto;
+  }
+  .float-in {
     animation: none;
   }
 }
+

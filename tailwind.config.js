@@ -4,20 +4,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        win: {
-          desktop: '#008080',
-          gray: '#c0c0c0',
-          grayDark: '#808080',
-          grayDarker: '#404040',
-          white: '#ffffff',
-          navy: '#000080',
-          navyLight: '#1084d0',
-          black: '#000000',
-        },
+        bg: 'rgb(var(--bg) / <alpha-value>)',
+        card: 'rgb(var(--card) / <alpha-value>)',
+        fg: 'rgb(var(--fg) / <alpha-value>)',
+        muted: 'rgb(var(--muted) / <alpha-value>)',
+        line: 'rgb(var(--line) / <alpha-value>)',
+        berry: 'rgb(var(--berry) / <alpha-value>)',
+        band: 'rgb(var(--band) / <alpha-value>)',
+        'band-fg': 'rgb(var(--band-fg) / <alpha-value>)',
+        latte: 'rgb(var(--latte) / <alpha-value>)',
       },
       fontFamily: {
-        sans: ['Tahoma', 'Segoe UI', 'system-ui', 'sans-serif'],
-        mono: ['"Courier New"', 'monospace'],
+        display: ['"Bricolage Grotesque"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
+      maxWidth: {
+        page: '70rem',
+      },
+      borderRadius: {
+        arch: '999px 999px 28px 28px',
       },
     },
   },
