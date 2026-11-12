@@ -21,9 +21,6 @@ export default {
       maxWidth: {
         page: '70rem',
       },
-      borderRadius: {
-        arch: '999px 999px 28px 28px',
-      },
     },
   },
   plugins: [],
