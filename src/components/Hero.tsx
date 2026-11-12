@@ -1,20 +1,25 @@
-import { profile } from '../data'
+import { profile } from "../data";
 
 export default function Hero() {
   return (
-    <section id="top" className="pinstripe relative overflow-hidden bg-band text-band-fg">
+    <section
+      id="top"
+      className="pinstripe relative overflow-hidden bg-band text-band-fg"
+    >
       <div className="mx-auto grid max-w-page items-end gap-12 px-5 pb-0 pt-32 md:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] md:px-8 md:pt-36">
         <div className="float-in flex flex-col gap-6 pb-16 md:pb-24">
           <span className="inline-flex w-fit items-center gap-2 rounded-full bg-card/70 px-3.5 py-1.5 text-sm">
             <span className="h-2 w-2 rounded-full bg-latte" aria-hidden />
-            {profile.title} · {profile.location.split(',')[0]}
+            {profile.title} · {profile.location.split(",")[0]}
           </span>
 
           <h1 className="text-[clamp(2.75rem,6.5vw,5rem)] font-extrabold leading-[1.02] tracking-[-0.03em]">
-            Merhaba, I'm {profile.firstName}.
+            Hey, I'm {profile.firstName}.
           </h1>
 
-          <p className="max-w-[46ch] text-lg leading-relaxed text-band-fg/85">{profile.lead}</p>
+          <p className="max-w-[46ch] text-lg leading-relaxed text-band-fg/85">
+            {profile.lead}
+          </p>
 
           <div className="flex flex-wrap gap-3 pt-2">
             <a
@@ -46,5 +51,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }
